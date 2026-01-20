@@ -20,8 +20,7 @@
 </head>
 
 <body class="font-sans text-gray-900 antialiased">
-    <div
-        class="min-h-screen flex flex-col bg-gradient-to-br from-emerald-50 to-green-100">
+    <div class="min-h-screen flex flex-col bg-gradient-to-br from-emerald-50 to-green-100">
         <div class="flex-grow flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
             <div>
                 <a href="/">

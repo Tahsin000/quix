@@ -1,9 +1,11 @@
 @props([
     'title' => config('app.name', 'Quiz Platform'),
-    'description' => 'A comprehensive quiz platform to test your knowledge, track your progress, and excel in various subjects. Interactive learning made easy.',
-    'keywords' => 'quiz, online quiz, test, exam, learning platform, education, knowledge test, practice quiz, study tool',
+    'description' =>
+        'A comprehensive quiz platform to test your knowledge, track your progress, and excel in various subjects. Interactive learning made easy.',
+    'keywords' =>
+        'quiz, online quiz, test, exam, learning platform, education, knowledge test, practice quiz, study tool',
     'image' => asset('social-preview.svg'),
-    'url' => url()->current()
+    'url' => url()->current(),
 ])
 
 <!-- Primary Meta Tags -->

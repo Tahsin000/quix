@@ -5,15 +5,18 @@
             <stop offset="100%" style="stop-color:rgb(5,150,105);stop-opacity:1" />
         </linearGradient>
     </defs>
-    <rect width="200" height="200" fill="url(#grad1)" rx="40"/>
-    <path d="M 70 60 L 70 140 L 130 140 L 130 60 Z" fill="white" opacity="0.3"/>
-    <path d="M 75 65 L 75 135 L 100 135 L 100 65 Z" fill="white"/>
-    <path d="M 100 65 L 100 135 L 125 135 L 125 65 Z" fill="white" opacity="0.7"/>
-    <line x1="80" y1="80" x2="95" y2="80" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
-    <line x1="80" y1="90" x2="95" y2="90" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
-    <line x1="80" y1="100" x2="95" y2="100" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
-    <line x1="105" y1="80" x2="120" y2="80" stroke="#10b981" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-    <line x1="105" y1="90" x2="120" y2="90" stroke="#10b981" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-    <line x1="105" y1="100" x2="120" y2="100" stroke="#10b981" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
-    <circle cx="100" cy="120" r="5" fill="white" opacity="0.9"/>
+    <rect width="200" height="200" fill="url(#grad1)" rx="40" />
+    <path d="M 70 60 L 70 140 L 130 140 L 130 60 Z" fill="white" opacity="0.3" />
+    <path d="M 75 65 L 75 135 L 100 135 L 100 65 Z" fill="white" />
+    <path d="M 100 65 L 100 135 L 125 135 L 125 65 Z" fill="white" opacity="0.7" />
+    <line x1="80" y1="80" x2="95" y2="80" stroke="#10b981" stroke-width="2" stroke-linecap="round" />
+    <line x1="80" y1="90" x2="95" y2="90" stroke="#10b981" stroke-width="2" stroke-linecap="round" />
+    <line x1="80" y1="100" x2="95" y2="100" stroke="#10b981" stroke-width="2" stroke-linecap="round" />
+    <line x1="105" y1="80" x2="120" y2="80" stroke="#10b981" stroke-width="2" stroke-linecap="round"
+        opacity="0.7" />
+    <line x1="105" y1="90" x2="120" y2="90" stroke="#10b981" stroke-width="2" stroke-linecap="round"
+        opacity="0.7" />
+    <line x1="105" y1="100" x2="120" y2="100" stroke="#10b981" stroke-width="2"
+        stroke-linecap="round" opacity="0.7" />
+    <circle cx="100" cy="120" r="5" fill="white" opacity="0.9" />
 </svg>
