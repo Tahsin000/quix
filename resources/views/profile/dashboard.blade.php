@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="min-h-screen bg-gradient-to-br from-emerald-50 to-green-100 py-8 px-4">
+    <div class="min-h-screen bg-gradient-to-br from-emerald-50 to-green-100 py-8 px-4 pb-20 md:pb-8">
         <div class="max-w-6xl mx-auto">
             <!-- Header -->
             <div class="mb-8">
@@ -164,4 +164,7 @@
             </div>
         </div>
     </div>
+
+    <!-- Bottom Navigation -->
+    <x-bottom-nav />
 </x-app-layout>

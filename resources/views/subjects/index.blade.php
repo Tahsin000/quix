@@ -1,6 +1,5 @@
 <x-app-layout>
-    <div class="min-h-screen bg-gradient-to-br from-emerald-50 to-green-100"
-        x-data="{ 
+    <div class="min-h-screen bg-gradient-to-br from-emerald-50 to-green-100" x-data="{ 
             showModal: false, 
             selectedSubject: null, 
             questionCount: 10, 
@@ -25,8 +24,7 @@
                 this.setQuestionCount();
                 this.showModal = true;
             }
-        }" 
-        x-init="$watch('maxQuestions', value => setQuestionCount())">
+        }" x-init="$watch('maxQuestions', value => setQuestionCount())">
         <!-- Header -->
         <div class="bg-white shadow-sm sticky top-0 z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -88,8 +86,7 @@
                             </div>
 
                             @if($subject->questions_count > 0)
-                                <button
-                                    @click="openModal({{ $subject->id }}, {{ $subject->questions_count }})"
+                                <button @click="openModal({{ $subject->id }}, {{ $subject->questions_count }})"
                                     class="block w-full bg-emerald-600 text-white text-center px-4 py-3 rounded-lg hover:bg-emerald-700 transition font-semibold">
                                     Start Quiz
                                 </button>
@@ -109,17 +106,19 @@
             </div>
 
             <!-- Quiz Request Button -->
-            <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+            <div class="bg-white rounded-xl shadow-lg p-6 text-center mb-20 md:mb-8">
                 <h3 class="text-xl font-bold text-gray-900 mb-2">Want to Contribute?</h3>
                 <p class="text-gray-600 mb-4">Submit your own quiz questions for review by our team</p>
-                <a href="{{ route('quiz-requests.create') }}"
-                    class="inline-block bg-emerald-600 text-white px-6 py-3 rounded-lg hover:bg-emerald-700 transition font-semibold">
-                    Request New Quiz
-                </a>
-                <a href="{{ route('quiz-requests.index') }}"
-                    class="inline-block bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition font-semibold ml-3">
-                    My Requests
-                </a>
+                <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                    <a href="{{ route('quiz-requests.create') }}"
+                        class="bg-emerald-600 text-white px-6 py-3 rounded-lg hover:bg-emerald-700 transition font-semibold">
+                        Request New Quiz
+                    </a>
+                    <a href="{{ route('quiz-requests.index') }}"
+                        class="bg-gray-600 text-white px-6 py-3 rounded-lg hover:bg-gray-700 transition font-semibold">
+                        My Requests
+                    </a>
+                </div>
             </div>
         </div>
 
@@ -190,15 +189,18 @@
                         </template>
 
                         <!-- Custom option for maxQuestions if it doesn't match presets -->
-                        <template x-if="![5, 10, 15, 20].includes(maxQuestions) && maxQuestions > 0 && maxQuestions < 5">
+                        <template
+                            x-if="![5, 10, 15, 20].includes(maxQuestions) && maxQuestions > 0 && maxQuestions < 5">
                             <button @click="questionCount = maxQuestions"
                                 :class="questionCount === maxQuestions ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
-                                class="px-4 py-3 rounded-lg font-semibold transition col-span-2" x-text="`All ${maxQuestions} Questions`">
+                                class="px-4 py-3 rounded-lg font-semibold transition col-span-2"
+                                x-text="`All ${maxQuestions} Questions`">
                             </button>
                         </template>
-                        
+
                         <!-- Show "All" option if maxQuestions is between standard options -->
-                        <template x-if="maxQuestions > 5 && maxQuestions <= 20 && ![5, 10, 15, 20].includes(maxQuestions)">
+                        <template
+                            x-if="maxQuestions > 5 && maxQuestions <= 20 && ![5, 10, 15, 20].includes(maxQuestions)">
                             <button @click="questionCount = maxQuestions"
                                 :class="questionCount === maxQuestions ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'"
                                 class="px-4 py-3 rounded-lg font-semibold transition" x-text="`All ${maxQuestions}`">
@@ -210,25 +212,26 @@
                     <div class="mb-4">
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Or choose custom amount:</label>
                         <div class="flex items-center gap-3">
-                            <input type="number" 
-                                x-model.number="questionCount" 
-                                :min="1" 
-                                :max="maxQuestions"
+                            <input type="number" x-model.number="questionCount" :min="1" :max="maxQuestions"
                                 @input="if(questionCount > maxQuestions) questionCount = maxQuestions; if(questionCount < 1) questionCount = 1;"
                                 class="flex-1 px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 outline-none transition"
                                 placeholder="Enter number">
                             <span class="text-gray-600 font-medium" x-text="`/ ${maxQuestions}`"></span>
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">Enter any number between 1 and <span x-text="maxQuestions"></span></p>
+                        <p class="text-xs text-gray-500 mt-1">Enter any number between 1 and <span
+                                x-text="maxQuestions"></span></p>
                     </div>
 
                     <!-- Info message -->
                     <div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 mb-4">
                         <p class="text-sm text-emerald-800 text-center">
                             <svg class="w-4 h-4 inline mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                <path fill-rule="evenodd"
+                                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                    clip-rule="evenodd" />
                             </svg>
-                            <span x-text="`${maxQuestions} question${maxQuestions === 1 ? '' : 's'} available for this subject`"></span>
+                            <span
+                                x-text="`${maxQuestions} question${maxQuestions === 1 ? '' : 's'} available for this subject`"></span>
                         </p>
                     </div>
 

@@ -35,21 +35,21 @@ class QuizController extends Controller
 
         // Check if this is a new quiz session (has count parameter or different subject)
         $isNewQuiz = $request->has('count') || session('current_subject_id') != $subjectId;
-        
+
         // If starting a new quiz, clear the session for this subject
         if ($isNewQuiz) {
             // Clear previous quiz attempts for fresh start
             QuizAttempt::where('user_id', auth()->id())
                 ->where('subject_id', $subjectId)
                 ->delete();
-            
+
             // Reset session
             session()->forget(['quiz_start_time', 'quiz_answered_in_session']);
         }
 
         // Get already answered questions in current session only
         $sessionAnswered = session('quiz_answered_in_session', []);
-        
+
         $question = Question::where('subject_id', $subjectId)
             ->active()
             ->whereNotIn('id', $sessionAnswered)
@@ -74,7 +74,10 @@ class QuizController extends Controller
             'quiz_available_questions' => $availableQuestions
         ]);
 
-        return view('quiz.show', compact('subject', 'question', 'answeredCount', 'questionCount'));
+        // Track when this question was started
+        $questionStartTime = microtime(true);
+
+        return view('quiz.show', compact('subject', 'question', 'answeredCount', 'questionCount', 'questionStartTime'));
     }
 
     public function answer(Request $request)
@@ -83,6 +86,10 @@ class QuizController extends Controller
         $selectedAnswer = $request->selected_answer;
         $isCorrect = $selectedAnswer === $question->correct_answer;
 
+        // Calculate time taken (from client-side timestamp)
+        $timeTaken = $request->input('time_taken', null);
+        $startedAt = $request->input('started_at') ? date('Y-m-d H:i:s', $request->input('started_at') / 1000) : now();
+
         // Record the attempt
         QuizAttempt::create([
             'user_id' => auth()->id(),
@@ -90,6 +97,8 @@ class QuizController extends Controller
             'question_id' => $question->id,
             'selected_answer' => $selectedAnswer,
             'is_correct' => $isCorrect,
+            'time_taken' => $timeTaken,
+            'started_at' => $startedAt,
         ]);
 
         // Track answered questions in session
@@ -147,7 +156,10 @@ class QuizController extends Controller
         $subject = Subject::find($subjectId);
         $answeredCount = count($answeredInSession);
 
-        return view('quiz.show', compact('subject', 'question', 'answeredCount', 'questionCount'));
+        // Track when this question was started
+        $questionStartTime = microtime(true);
+
+        return view('quiz.show', compact('subject', 'question', 'answeredCount', 'questionCount', 'questionStartTime'));
     }
 
     public function results($subjectId)
@@ -156,7 +168,7 @@ class QuizController extends Controller
 
         // Get answered questions from session
         $answeredInSession = session('quiz_answered_in_session', []);
-        
+
         // Get attempts for this quiz session only
         $attempts = QuizAttempt::where('user_id', auth()->id())
             ->where('subject_id', $subjectId)
@@ -172,6 +184,10 @@ class QuizController extends Controller
         $startTime = session('quiz_start_time');
         $timeTaken = $startTime ? round(microtime(true) - $startTime, 2) : 0;
 
+        // Calculate average time per question
+        $avgTimePerQuestion = $attempts->avg('time_taken') ?? 0;
+        $avgTimePerQuestion = round($avgTimePerQuestion, 2);
+
         // Clear session
         session()->forget(['quiz_start_time', 'current_subject_id', 'quiz_question_count', 'quiz_answered_in_session', 'quiz_available_questions']);
 
@@ -181,7 +197,9 @@ class QuizController extends Controller
             'correctAnswers',
             'incorrectAnswers',
             'percentage',
-            'timeTaken'
+            'timeTaken',
+            'avgTimePerQuestion',
+            'attempts'
         ));
     }
 }

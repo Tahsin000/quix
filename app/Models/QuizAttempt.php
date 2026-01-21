@@ -15,10 +15,13 @@ class QuizAttempt extends Model
         'question_id',
         'selected_answer',
         'is_correct',
+        'time_taken',
+        'started_at',
     ];
 
     protected $casts = [
         'is_correct' => 'boolean',
+        'started_at' => 'datetime',
     ];
 
     public function user()

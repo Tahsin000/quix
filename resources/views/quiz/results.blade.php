@@ -45,15 +45,35 @@
                         </div>
                     </div>
 
-                    <!-- Time Taken -->
-                    <div class="bg-gray-50 rounded-xl p-4 mb-8 text-center">
-                        <div class="flex items-center justify-center">
-                            <svg class="w-5 h-5 text-gray-600 mr-2" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <span class="text-gray-700">Time Taken: <strong>{{ $timeTaken }} minutes</strong></span>
+                    <!-- Time Statistics -->
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="bg-blue-50 rounded-xl p-4 text-center">
+                            <div class="flex items-center justify-center mb-2">
+                                <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span class="text-sm text-gray-600">Total Time</span>
+                            </div>
+                            <div class="text-2xl font-bold text-blue-600">
+                                @php
+                                    $minutes = floor($timeTaken / 60);
+                                    $seconds = $timeTaken % 60;
+                                @endphp
+                                {{ $minutes }}:{{ str_pad($seconds, 2, '0', STR_PAD_LEFT) }}
+                            </div>
+                        </div>
+                        <div class="bg-purple-50 rounded-xl p-4 text-center">
+                            <div class="flex items-center justify-center mb-2">
+                                <svg class="w-5 h-5 text-purple-600 mr-2" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                                <span class="text-sm text-gray-600">Avg/Question</span>
+                            </div>
+                            <div class="text-2xl font-bold text-purple-600">{{ $avgTimePerQuestion }}s</div>
                         </div>
                     </div>
 

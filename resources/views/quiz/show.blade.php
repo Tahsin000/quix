@@ -4,10 +4,19 @@
         <div class="bg-white shadow-md sticky top-0 z-10">
             <div class="max-w-4xl mx-auto px-4 py-4">
                 <div class="flex justify-between items-center">
-                    <div>
+                    <div class="flex-1">
                         <h2 class="text-lg font-bold text-gray-900">{{ $subject->name }}</h2>
-                        <p class="text-sm text-gray-600">Current Score: <span id="score"
-                                class="font-semibold text-emerald-600">{{ $answeredCount }}</span></p>
+                        <div class="flex items-center gap-4 text-sm">
+                            <p class="text-gray-600">Score: <span id="score"
+                                    class="font-semibold text-emerald-600">{{ $answeredCount }}</span></p>
+                            <p class="text-gray-600">
+                                <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <span id="timer" class="font-semibold text-blue-600">0:00</span>
+                            </p>
+                        </div>
                     </div>
                     <a href="{{ route('dashboard') }}" class="text-gray-600 hover:text-gray-900">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,6 +88,29 @@
         let currentQuestionId = {{ $question->id }};
         let selectedOption = null;
         let score = {{ $answeredCount }};
+        let questionStartTime = Date.now(); // Track when question started
+        let timerInterval;
+
+        // Start timer
+        function startTimer() {
+            timerInterval = setInterval(function () {
+                let elapsed = Math.floor((Date.now() - questionStartTime) / 1000);
+                let minutes = Math.floor(elapsed / 60);
+                let seconds = elapsed % 60;
+                document.getElementById('timer').textContent =
+                    minutes + ':' + (seconds < 10 ? '0' + seconds : seconds);
+            }, 1000);
+        }
+
+        // Stop timer
+        function stopTimer() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+        }
+
+        // Start timer on page load
+        startTimer();
 
         function selectAnswer(option) {
             if (selectedOption) return; // Prevent multiple selections
@@ -91,6 +123,10 @@
                 btn.classList.add('opacity-50', 'cursor-not-allowed');
             });
 
+            // Calculate time taken
+            let timeTaken = (Date.now() - questionStartTime) / 1000; // in seconds
+            stopTimer();
+
             // Submit answer
             fetch('{{ route('quiz.answer') }}', {
                 method: 'POST',
@@ -100,7 +136,9 @@
                 },
                 body: JSON.stringify({
                     question_id: currentQuestionId,
-                    selected_answer: option
+                    selected_answer: option,
+                    time_taken: timeTaken.toFixed(2),
+                    started_at: questionStartTime
                 })
             })
                 .then(response => response.json())
