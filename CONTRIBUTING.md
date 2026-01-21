@@ -513,7 +513,6 @@ If your changes affect the user-facing features:
 
 - 💬 **Discussions**: Use GitHub Discussions for questions
 - 🐛 **Issues**: Report bugs in GitHub Issues
-- 📧 **Email**: your.email@example.com
 
 ---
 
