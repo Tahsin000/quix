@@ -29,7 +29,7 @@
         </div>
 
         <!-- Quiz Content -->
-        <div class="max-w-4xl mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto px-4 py-8 no-select">
             @if(session('info'))
                 <div class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded-lg mb-6">
                     {{ session('info') }}
@@ -42,7 +42,7 @@
                 </div>
             @endif
 
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden no-select">
                 <!-- Question Container -->
                 <div class="p-6 md:p-8">
                     <div class="mb-6">
@@ -84,17 +84,73 @@
         </div>
     </div>
 
+    <style>
+        /* Prevent text selection and copying */
+        .no-select,
+        .no-select * {
+            -webkit-user-select: none !important;
+            -moz-user-select: none !important;
+            -ms-user-select: none !important;
+            user-select: none !important;
+            -webkit-touch-callout: none !important;
+        }
+
+        /* Additional protection */
+        .no-select::selection,
+        .no-select *::selection {
+            background: transparent !important;
+            color: inherit !important;
+        }
+    </style>
+
     <script>
         let currentQuestionId = {{ $question->id }};
         let selectedOption = null;
         let score = {{ $answeredCount }};
         let questionStartTime = Date.now(); // Track when question started
+        @if(session('quiz_start_time'))
+            let quizStartTime = {{ session('quiz_start_time') * 1000 }}; // Total quiz session start time
+        @else
+            let quizStartTime = Date.now(); // Total quiz session start time
+        @endif
         let timerInterval;
 
-        // Start timer
+        // Copy-paste prevention
+        document.addEventListener('DOMContentLoaded', function () {
+            const quizContainer = document.querySelector('.no-select');
+
+            // Prevent copy
+            document.addEventListener('copy', function (e) {
+                e.preventDefault();
+                return false;
+            });
+
+            // Prevent cut
+            document.addEventListener('cut', function (e) {
+                e.preventDefault();
+                return false;
+            });
+
+            // Prevent context menu (right-click)
+            document.addEventListener('contextmenu', function (e) {
+                e.preventDefault();
+                return false;
+            });
+
+            // Prevent keyboard shortcuts
+            document.addEventListener('keydown', function (e) {
+                // Ctrl+C, Ctrl+A, Ctrl+X, Cmd+C, Cmd+A, Cmd+X
+                if ((e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'a' || e.key === 'x' || e.key === 'C' || e.key === 'A' || e.key === 'X')) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+        });
+
+        // Start central timer (tracks total quiz session time)
         function startTimer() {
             timerInterval = setInterval(function () {
-                let elapsed = Math.floor((Date.now() - questionStartTime) / 1000);
+                let elapsed = Math.floor((Date.now() - quizStartTime) / 1000);
                 let minutes = Math.floor(elapsed / 60);
                 let seconds = elapsed % 60;
                 document.getElementById('timer').textContent =

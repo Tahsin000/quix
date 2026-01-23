@@ -188,6 +188,9 @@ class QuizController extends Controller
         $avgTimePerQuestion = $attempts->avg('time_taken') ?? 0;
         $avgTimePerQuestion = round($avgTimePerQuestion, 2);
 
+        // Store question count before clearing session
+        $questionCount = session('quiz_question_count', 10);
+
         // Clear session
         session()->forget(['quiz_start_time', 'current_subject_id', 'quiz_question_count', 'quiz_answered_in_session', 'quiz_available_questions']);
 
@@ -199,7 +202,8 @@ class QuizController extends Controller
             'percentage',
             'timeTaken',
             'avgTimePerQuestion',
-            'attempts'
+            'attempts',
+            'questionCount'
         ));
     }
 }

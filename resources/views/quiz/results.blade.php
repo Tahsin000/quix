@@ -79,7 +79,7 @@
 
                     <!-- Action Buttons -->
                     <div class="space-y-3">
-                        <a href="{{ route('quiz.show', $subject->id) }}"
+                        <a href="{{ route('quiz.show', ['subject' => $subject->id, 'count' => $questionCount]) }}"
                             class="block w-full bg-emerald-600 text-white text-center px-6 py-4 rounded-xl hover:bg-emerald-700 transition font-bold text-lg">
                             Try Again
                         </a>
