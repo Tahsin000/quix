@@ -7,6 +7,39 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
+Route::get('/calculator', function () {
+    return view('calculator');
+})->name('calculator');
+
+Route::post('/calculator/save', function (\Illuminate\Http\Request $request) {
+    $data = $request->validate([
+        'D' => 'required|numeric',
+        'L' => 'required|numeric',
+        'M' => 'required|numeric',
+        'B' => 'required|numeric',
+        'H' => 'required|numeric',
+        'U' => 'required|numeric',
+        'E' => 'required|numeric',
+        'C' => 'required|numeric',
+        'T' => 'required|numeric',
+        'questions' => 'required|array'
+    ]);
+    
+    $logEntry = "[" . now()->toDateTimeString() . "] Student Data -> " . json_encode($data) . PHP_EOL;
+    \Illuminate\Support\Facades\File::append(storage_path('app/calculator_submissions.log'), $logEntry);
+    
+    return response()->json(['status' => 'success']);
+})->name('calculator.save');
+
+Route::post('/calculator/save-student', function (\Illuminate\Http\Request $request) {
+    $data = $request->all();
+    
+    $logEntry = "[" . now()->toDateTimeString() . "] PDF Generated - Student Info -> " . json_encode($data) . PHP_EOL;
+    \Illuminate\Support\Facades\File::append(storage_path('app/calculator_submissions.log'), $logEntry);
+    
+    return response()->json(['status' => 'success']);
+})->name('calculator.save_student');
+
 Route::middleware(['auth', 'verified'])->group(function () {
     // Routes for regular users only (quiz taking)
     Route::middleware(['role.user'])->group(function () {

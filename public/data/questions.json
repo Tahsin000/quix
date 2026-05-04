@@ -1,0 +1,422 @@
+{
+  "1": {
+    "title": "What does computer security mean?",
+    "answer": "Computer security refers to the protection of computer systems, networks, and data from unauthorized access, disruption, or destruction. It ensures the confidentiality, integrity, and availability of information."
+  },
+  "2": {
+    "title": "What are the concepts and objectives of computer security?",
+    "answer": "The core concepts and objectives are confidentiality, integrity, and availability, often referred to as the CIA triad. These ensure data is kept private, remains unaltered, and is accessible to authorized users when needed."
+  },
+  "3": {
+    "title": "Explain the breach of security with their levels of impact.",
+    "answer": "A security breach is an incident where unauthorized access to data or systems occurs. Impacts can range from low (minor data exposure) to high (severe financial loss, reputational damage, and legal consequences)."
+  },
+  "4": {
+    "title": "Describe computer security requirements and challenges.",
+    "answer": "Security requirements involve authentication, access control, and data protection. Challenges include evolving threat landscapes, human error, balancing security with usability, and resource constraints."
+  },
+  "5": {
+    "title": "Discuss OSI security architecture.",
+    "answer": "The OSI security architecture provides a systematic framework for defining security requirements and approaches to satisfying them. It focuses on security attacks, mechanisms, and services."
+  },
+  "6": {
+    "title": "Illustrate security threats and attacks with their categories and examples.",
+    "answer": "Threats are potential violations of security, while attacks are deliberate actions. Categories include passive attacks (e.g., traffic analysis) and active attacks (e.g., denial of service, replay)."
+  },
+  "7": {
+    "title": "Explore the security services in detail.",
+    "answer": "Security services enhance the security of data processing and transfers. Key services include authentication, access control, data confidentiality, data integrity, and non-repudiation."
+  },
+  "8": {
+    "title": "Narrate the security mechanisms elaborately.",
+    "answer": "Security mechanisms are designed to detect, prevent, or recover from security attacks. Examples include encipherment, digital signatures, access controls, and data routing mechanisms."
+  },
+  "9": {
+    "title": "Sketch up the model for Network Security independent of any dimensions.",
+    "answer": "A general network security model involves a sender and receiver, an information channel, and a trusted third party. It requires a security-related transformation (encryption) and a shared secret key."
+  },
+  "10": {
+    "title": "Draw the Network Access Security model and explain the components.",
+    "answer": "The Network Access Security model focuses on protecting systems from unwanted access. Its components include a gatekeeper function (e.g., firewalls or passwords) and internal security controls."
+  },
+  "11": {
+    "title": "What is the purpose of Standards & Standard-Organizations with respect to Neywork Security?",
+    "answer": "Standards ensure interoperability, baseline security, and uniformity across different vendors and systems. Organizations like NIST, ISO, and IETF define these crucial security protocols."
+  },
+  "12": {
+    "title": "Write down the definition of Plaintext, Ciphertext, Cipher, Encipher, Decipher, Cryptography, Cryptology and Cryptanalysis.",
+    "answer": "Plaintext is original data; ciphertext is encrypted data. A cipher is the algorithm used; encipher/decipher means encrypt/decrypt. Cryptography is creating codes, cryptanalysis is breaking them, and cryptology encompasses both."
+  },
+  "13": {
+    "title": "Draw the simplified model of conventional cryptography.",
+    "answer": "The simplified model consists of plaintext input, an encryption algorithm using a secret key, resulting ciphertext, and a decryption algorithm at the receiver's end using the same key."
+  },
+  "14": {
+    "title": "Describe the requirements of symmetric encryption.",
+    "answer": "Symmetric encryption requires a strong cryptographic algorithm and a securely shared secret key between the sender and receiver. The key must be kept secret from all unauthorized parties."
+  },
+  "15": {
+    "title": "Depict the Independent Dimensions of Cryptography.",
+    "answer": "Cryptography dimensions include the type of operations used for transforming plaintext (substitution/transposition), the number of keys used (symmetric/asymmetric), and how plaintext is processed (block/stream)."
+  },
+  "16": {
+    "title": "Explain different type of computer security attacks with the cryptanalysis knowledge.",
+    "answer": "Cryptanalytic attacks rely on the nature of the algorithm and some knowledge of plaintext/ciphertext pairs. Types include ciphertext-only, known-plaintext, chosen-plaintext, and chosen-ciphertext attacks."
+  },
+  "17": {
+    "title": "What is Brute-Force attack? Give its behavior and examples.",
+    "answer": "A brute-force attack involves trying every possible key until an intelligible translation of ciphertext is obtained. It is highly resource-intensive and its success depends entirely on the key length."
+  },
+  "18": {
+    "title": "Describe the overall structure Feistel Encryption - decryption.",
+    "answer": "The Feistel structure uses multiple rounds of processing on halves of the data block. Decryption uses the exact same structure and algorithm as encryption, but applies the subkeys in reverse order."
+  },
+  "19": {
+    "title": "Discuss the operations in a round and function of Feistel with comparison to DES.",
+    "answer": "In a Feistel round, one half of the block passes through a substitution function with a subkey, then is XORed with the other half. DES is a specific implementation of the Feistel structure with 16 rounds."
+  },
+  "20": {
+    "title": "What will be the impact of variation of Block size, Key size, Number of rounds, Round function complexity, Fast software encryption/decryption and Ease of analysis?",
+    "answer": "Larger block and key sizes increase security but decrease speed. More rounds and complex functions enhance security against cryptanalysis. Fast software encryption and ease of analysis help in practical implementation and vulnerability assessment."
+  },
+  "21": {
+    "title": "Compare AES, DES, Triple DES, Feistel, Lucifer and RC4 with respect to key size, round, block size, inventor, year of invention.",
+    "answer": "DES uses a 56-bit key and 64-bit block. AES uses 128/192/256-bit keys and 128-bit blocks. RC4 is a stream cipher. They vary in origin, with DES originating from IBM's Lucifer in the 1970s and AES from NIST in 2001."
+  },
+  "22": {
+    "title": "Illustrate the overall structure of AES encryption \u2013 decryption.",
+    "answer": "AES uses a substitution-permutation network. Encryption involves multiple rounds of SubBytes, ShiftRows, MixColumns, and AddRoundKey. Decryption uses inverse functions in reverse order."
+  },
+  "23": {
+    "title": "Explain the operations in a round of AES.",
+    "answer": "An AES round performs four transformations: SubBytes (byte substitution), ShiftRows (row shifting), MixColumns (column mixing), and AddRoundKey (XORing with a round key)."
+  },
+  "24": {
+    "title": "Narrate the Triple DES guidelines and operation process.",
+    "answer": "Triple DES applies the DES algorithm three times using two or three distinct keys (Encrypt-Decrypt-Encrypt sequence) to significantly increase the effective key size and security over standard DES."
+  },
+  "25": {
+    "title": "What is the significance of Random numbers with respect to Network security?",
+    "answer": "Random numbers are crucial for generating cryptographic keys, nonces, initialization vectors, and salt values. They ensure unpredictability, preventing attackers from guessing security parameters."
+  },
+  "26": {
+    "title": "Explore characteristics and tests of Random number.",
+    "answer": "Random numbers must have uniform distribution and independence. Tests like the frequency test, runs test, and Maurer's universal statistical test are used to verify their randomness."
+  },
+  "27": {
+    "title": "Describe different random number generators.",
+    "answer": "Generators include True Random Number Generators (TRNGs) relying on physical entropy, and Pseudorandom Number Generators (PRNGs) using deterministic algorithms with random seeds."
+  },
+  "28": {
+    "title": "Narrate stream cipher design considerations.",
+    "answer": "Stream ciphers must have a long period without repeating, produce a keystream with true random characteristics, and use a sufficiently long key to resist brute-force attacks."
+  },
+  "29": {
+    "title": "Depict RC4 algorithm elaborately.",
+    "answer": "RC4 is a symmetric stream cipher that uses a variable-length key to initialize a 256-byte state vector. It generates a pseudorandom keystream which is XORed with the plaintext."
+  },
+  "30": {
+    "title": "What is the importance of cipher block modes of operation in conventional cryptography?",
+    "answer": "Modes of operation define how to repeatedly apply a block cipher to securely encrypt data larger than a single block, addressing vulnerabilities present in simple independent block encryption."
+  },
+  "31": {
+    "title": "Write down the CBC & CFB cipher block modes of operation in detail with appropriate diagram.",
+    "answer": "CBC (Cipher Block Chaining) XORs each plaintext block with the previous ciphertext block before encryption. CFB (Cipher Feedback) turns a block cipher into a stream cipher by feeding ciphertext back into the algorithm."
+  },
+  "32": {
+    "title": "Explain the OFB & Counter cipher block modes of operation in detail with appropriate diagram.",
+    "answer": "OFB (Output Feedback) generates a keystream independently of the plaintext/ciphertext. CTR (Counter) mode encrypts an incremental counter value to generate a keystream, allowing parallel processing."
+  },
+  "33": {
+    "title": "Discuss the Message Authentication Process using MAC.",
+    "answer": "A Message Authentication Code (MAC) uses a shared secret key and a message to generate a small fixed-size block. The receiver recalculates the MAC to verify data integrity and authenticity."
+  },
+  "34": {
+    "title": "What is One-way hash function? How to use it for MAC?",
+    "answer": "A one-way hash function maps variable-length data to a fixed-size digest. It can be used for a MAC (like HMAC) by cryptographically combining the message with a secret key before hashing."
+  },
+  "35": {
+    "title": "Explain the properties for a secure hash function.",
+    "answer": "Secure hash functions must be computationally efficient, pre-image resistant (one-way), second pre-image resistant (weak collision resistance), and collision-resistant (strong collision resistance)."
+  },
+  "36": {
+    "title": "Describe the Simple Hash Function using XOR",
+    "answer": "A simple XOR hash function splits the message into fixed-size blocks and XORs them all together. It is fast but highly insecure as it lacks avalanche effect and collision resistance."
+  },
+  "37": {
+    "title": "Compare the parameters of SHA.",
+    "answer": "SHA-1 has a 160-bit digest. SHA-256 uses 256 bits, and SHA-512 uses 512 bits. As the digest size increases, security against brute-force and collision attacks also significantly increases."
+  },
+  "38": {
+    "title": "Discuss the Message Digest Generation using SHA-512",
+    "answer": "SHA-512 pads the message, appends the length, and processes it in 1024-bit blocks. It uses 80 rounds of logical operations and constants to update an initial 512-bit hash value."
+  },
+  "39": {
+    "title": "Illustrate Design objectives of HMAC.",
+    "answer": "HMAC was designed to use existing cryptographic hash functions without modification, preserve the hash's original performance, and allow easy replacement of the underlying hash function if needed."
+  },
+  "40": {
+    "title": "Explore Cipher-based MAC with appropriate diagram.",
+    "answer": "CMAC (Cipher-based MAC) overcomes security deficiencies of basic CBC-MAC. It uses a block cipher like AES to create a secure message authentication code, handling messages of any length."
+  },
+  "41": {
+    "title": "Narrate Counter with Cipher Block Chaining MAC.",
+    "answer": "CCM combines Counter (CTR) mode for confidentiality and CBC-MAC for authentication. It is an authenticated encryption algorithm widely used in wireless standards like WPA2."
+  },
+  "42": {
+    "title": "Depict the applications of Public Key Cryptosystem.",
+    "answer": "Public key cryptosystems are primarily used for encryption/decryption, digital signatures for authentication and non-repudiation, and secure key exchange over insecure channels."
+  },
+  "43": {
+    "title": "Explain the RSA algorithm.",
+    "answer": "RSA relies on the mathematical difficulty of factoring large prime numbers. A public key is generated for encryption, and a private key (derived from the primes) is kept secret for decryption."
+  },
+  "44": {
+    "title": "Describe the Diffie Hellman Key Exchange algorithm.",
+    "answer": "Diffie-Hellman allows two parties to securely generate a shared secret key over an insecure channel without transmitting the key itself, using discrete logarithms in a finite field."
+  },
+  "45": {
+    "title": "Discuss the characteristics of Kerberos.",
+    "answer": "Kerberos is a centralized authentication server that uses tickets to grant secure access to services. It relies on symmetric cryptography and prevents password transmission over the network."
+  },
+  "46": {
+    "title": "Explain the six step Kerberos authentication scheme with appropriate diagrams.",
+    "answer": "The steps involve logging in, requesting a Ticket-Granting Ticket (TGT), receiving the TGT, requesting a service ticket using the TGT, receiving the service ticket, and finally authenticating to the target service."
+  },
+  "47": {
+    "title": "What are the differences between Kerberos-4 and Kerberos-5?",
+    "answer": "Kerberos 5 introduced improvements over version 4, including support for multiple encryption algorithms, longer ticket lifetimes, and better protection against replay attacks and ticket theft."
+  },
+  "48": {
+    "title": "Illustrate the elements of the Kerberos version 4 protocol.",
+    "answer": "Elements include the Authentication Server (AS), Ticket Granting Server (TGS), client, and server. It utilizes DES encryption, authenticators, and timestamps to validate requests."
+  },
+  "49": {
+    "title": "Describe the components of Kerberos Realm and Principal.",
+    "answer": "A Kerberos realm is the domain over which a Kerberos authentication server has authority. A principal is a unique identity (user or service) to which Kerberos can assign tickets."
+  },
+  "50": {
+    "title": "Illustrate the Key Distribution using Asymmetric Encryption with diagram.",
+    "answer": "Public key cryptography can securely distribute symmetric keys. A sender encrypts a symmetric session key with the receiver's public key, ensuring only the receiver can decrypt and use it."
+  },
+  "51": {
+    "title": "Discuss the characteristics and components of X.509 Certificates with revocation.",
+    "answer": "X.509 defines the format for public key certificates binding an identity to a public key. It includes issuer, validity dates, subject, and a Certificate Revocation List (CRL) for compromised keys."
+  },
+  "52": {
+    "title": "Describe the significance and process of Digital Signature.",
+    "answer": "Digital signatures provide authentication, data integrity, and non-repudiation. The sender hashes the data and encrypts the hash with their private key; the receiver decrypts and verifies the hash."
+  },
+  "53": {
+    "title": "Depict the Public key Infrastructure Architecture including functions and entities.",
+    "answer": "PKI consists of Certification Authorities (CAs), Registration Authorities (RAs), repositories, and end entities. It manages the creation, distribution, and revocation of digital certificates."
+  },
+  "54": {
+    "title": "Explain the Federal Identity Management elements, operation and standards.",
+    "answer": "FIM establishes trust across different organizations. It involves identity providers, service providers, and standards like SAML to enable Single Sign-On (SSO) across independent security domains."
+  },
+  "55": {
+    "title": "What are the issues to consider for the security of web?",
+    "answer": "Web security must address the fact that the internet is two-way, servers are vulnerable to exploits, underlying TCP/IP lacks inherent security, and end-users are susceptible to social engineering."
+  },
+  "56": {
+    "title": "Compare the threats on the web.",
+    "answer": "Web threats include integrity threats (data modification), confidentiality threats (eavesdropping), denial of service (disrupting availability), and authentication threats (impersonation)."
+  },
+  "57": {
+    "title": "Illustrate the Relative Location of Security Facilities in the TCP/IP Protocol Stack.",
+    "answer": "Security can be implemented at the network layer (IPsec), transport layer (SSL/TLS), or application layer (S/MIME, Kerberos). Higher layers offer customized security; lower layers offer transparency."
+  },
+  "58": {
+    "title": "What do you mean by SSL/TLS? Discuss the properties of SSL/TLS.",
+    "answer": "SSL and TLS are cryptographic protocols designed to provide communication security over a network. They ensure connection confidentiality, message integrity, and endpoint authentication."
+  },
+  "59": {
+    "title": "What are differences between SSL and TLS?",
+    "answer": "TLS is the modern, standardized successor to SSL. TLS offers stronger encryption algorithms, better MAC handling, and fixes various security vulnerabilities present in older SSL versions."
+  },
+  "60": {
+    "title": "Depict the main components of SSL protocol stack.",
+    "answer": "The stack consists of the SSL Record Protocol running on TCP, and above it the Handshake Protocol, Change Cipher Spec Protocol, Alert Protocol, and application data (HTTP)."
+  },
+  "61": {
+    "title": "Define the parameters in SSL session state and SSL connection state",
+    "answer": "Session states store reusable parameters like session ID and master secret. Connection states store temporary cryptographic keys, MAC secrets, and sequence numbers specific to an active connection."
+  },
+  "62": {
+    "title": "Explain the SSL record protocol including format and algorithms.",
+    "answer": "The Record Protocol takes application data, fragments it, compresses it, applies a MAC, encrypts it, and adds an SSL header before transmission over TCP."
+  },
+  "63": {
+    "title": "Discuss the SSL Handshake protocol with message types and process.",
+    "answer": "The handshake negotiates cipher suites, authenticates the server (and optionally the client) using certificates, and securely establishes the shared master secret for the session."
+  },
+  "64": {
+    "title": "Describe the cryptographic computation of Master Secret and Parameters in SSL.",
+    "answer": "A pre-master secret is exchanged during the handshake. Both sides use a pseudorandom function (PRF) with the pre-master secret and random nonces to generate the 48-byte master secret."
+  },
+  "65": {
+    "title": "Explore the characteristics of HTTPS.",
+    "answer": "HTTPS is HTTP running over SSL/TLS. It provides secure web browsing by encrypting URLs, document contents, form data, cookies, and HTTP headers."
+  },
+  "66": {
+    "title": "Illustrate the Connection Initiation and Connection Closure of HTTPS.",
+    "answer": "Initiation begins with a TCP handshake on port 443, followed by the TLS handshake. Closure requires an exchange of close_notify alerts to prevent truncation attacks before terminating the TCP connection."
+  },
+  "67": {
+    "title": "What are the characteristics and components of SSH.",
+    "answer": "SSH provides secure remote login and other network services over an insecure network. Its components are the Transport Layer Protocol, User Authentication Protocol, and Connection Protocol."
+  },
+  "68": {
+    "title": "Explain SSH Transport Layer Protocol and possible cryptographic algorithms.",
+    "answer": "The Transport Layer provides server authentication, confidentiality, and integrity. It typically uses Diffie-Hellman for key exchange, AES for encryption, and HMAC for data integrity."
+  },
+  "69": {
+    "title": "Describe the SSH Connection Protocol and channel Types.",
+    "answer": "The Connection Protocol multiplexes the encrypted tunnel into multiple logical channels. Channel types include session (for shells), x11 (for graphical apps), and forwarded-tcpip (for port forwarding)."
+  },
+  "70": {
+    "title": "What are the key factors contributing to the higher security risk of wireless networks compared to wired networks?",
+    "answer": "Wireless signals are broadcast in the open air, making them easily interceptable without physical access. Mobility and dynamic network topology also complicate access control."
+  },
+  "71": {
+    "title": "Illustrate the threats in wireless networks.",
+    "answer": "Common threats include eavesdropping, rogue access points, MAC spoofing, man-in-the-middle attacks, and denial-of-service via radio interference or protocol abuse."
+  },
+  "72": {
+    "title": "Discuss the major security concerns for mobile devices.",
+    "answer": "Mobile devices face risks from physical theft, insecure Wi-Fi connections, malicious applications, outdated operating systems, and the blending of personal and corporate data (BYOD)."
+  },
+  "73": {
+    "title": "Describe the security controls that may be configured by an organization in wireless environment.",
+    "answer": "Organizations use WPA2/WPA3 encryption, MAC filtering, 802.1X authentication (RADIUS servers), VPNs for remote access, and Intrusion Detection Systems (WIDS) to monitor the airspace."
+  },
+  "74": {
+    "title": "Compare and contrast Wered Equivalent Privacy, Wi-Fi Protected Access and Robust Security Network.",
+    "answer": "WEP is highly flawed and easily broken. WPA was a temporary fix using TKIP. RSN (WPA2/WPA3) is the modern standard, providing strong AES encryption and robust key management."
+  },
+  "75": {
+    "title": "What is PGP? Demonstrate the contributions of Phil Zimmermann to the development of PGP.",
+    "answer": "Pretty Good Privacy (PGP) provides cryptographic privacy and authentication. Phil Zimmermann developed it to make high-quality, open-source cryptography accessible to the general public."
+  },
+  "76": {
+    "title": "Describe the reasons for the worldwide growth of PGP.",
+    "answer": "PGP grew due to its availability as freeware, its reliance on strong established algorithms (RSA, IDEA), its independence from government/corporate control, and its user-friendly web of trust model."
+  },
+  "77": {
+    "title": "What algorithms are used for the following functions in PGP? Digital Signature, Message Encryption, Compression and Email Compatibility.",
+    "answer": "PGP uses RSA/DSS for signatures, RSA/Diffie-Hellman for key exchange, IDEA/AES for message encryption, ZIP for compression, and Radix-64 encoding for email compatibility."
+  },
+  "78": {
+    "title": "Draw the flowchart for the transmission and reception of PGP messages.",
+    "answer": "Transmission: Sign (hash + encrypt hash), Compress, Encrypt (message + session key), Encode (Radix-64). Reception: Decode, Decrypt, Decompress, Verify signature."
+  },
+  "79": {
+    "title": "Illustrate the Confidentiality and Authentication functions of PGP.",
+    "answer": "Confidentiality is achieved by encrypting the message with a one-time symmetric key, which is encrypted with the receiver's public key. Authentication is achieved by signing the message hash with the sender's private key."
+  },
+  "80": {
+    "title": "Illustrate the characteristics of S/MIME.",
+    "answer": "S/MIME (Secure/Multipurpose Internet Mail Extensions) is an industry standard for email security. It relies on a strict hierarchical PKI (unlike PGP's web of trust) for certificate management."
+  },
+  "81": {
+    "title": "Demonstrate the S/MIME functionalities.",
+    "answer": "S/MIME provides enveloped data (encrypted), signed data, clear-signed data, and signed-and-enveloped data functions to secure email payloads."
+  },
+  "82": {
+    "title": "Explain the three elements of S/MIME.",
+    "answer": "S/MIME utilizes MIME encapsulation rules, specific cryptographic algorithms (like AES and RSA), and X.509 standard certificates for robust public key management."
+  },
+  "83": {
+    "title": "Describe the five header fields defined in MIME.",
+    "answer": "MIME headers include MIME-Version, Content-Type (defines data format), Content-Transfer-Encoding, Content-ID (unique identifier), and Content-Description (human-readable summary)."
+  },
+  "84": {
+    "title": "Depict the cryptographic algorithms used in S?MIME.",
+    "answer": "S/MIME mandates SHA-256 for hashing, RSA or ECDSA for digital signatures, and AES-128 CBC for message encryption, ensuring high cryptographic standards."
+  },
+  "85": {
+    "title": "Discuss the application areas of IPSec.",
+    "answer": "IPsec is used for secure branch office connectivity over the internet, secure remote access over the internet, establishing extranets, and enhancing electronic commerce security."
+  },
+  "86": {
+    "title": "Explore the benefits of IPSec.",
+    "answer": "IPsec is transparent to applications, meaning software doesn't need modification to be secure. It can provide security for individual users or across entire networks automatically."
+  },
+  "87": {
+    "title": "What are differences between transport mode and tunnel mode in IPSec?",
+    "answer": "Transport mode encrypts only the IP payload and is used end-to-end between hosts. Tunnel mode encrypts the entire IP packet, adds a new IP header, and is typically used between security gateways (VPNs)."
+  },
+  "88": {
+    "title": "What are the general services and services defined by RFC4301 for IPSec?",
+    "answer": "RFC 4301 defines services like access control, connectionless integrity, data origin authentication, rejection of replayed packets, and confidentiality via encryption."
+  },
+  "89": {
+    "title": "Explain IPSec Architecture with diagram.",
+    "answer": "The architecture comprises IPsec protocols (AH and ESP), Security Associations (SAs), Security Policy Databases (SPDs), and key management protocols (IKE) working together at the network layer."
+  },
+  "90": {
+    "title": "Describe Security Association and its database in IPSec.",
+    "answer": "An SA is a one-way logical connection defining security parameters. The Security Association Database (SAD) stores parameters for active SAs, like cryptographic keys and sequence numbers."
+  },
+  "91": {
+    "title": "Demonstrate the Security Policy Database and its entries.",
+    "answer": "The SPD defines what traffic requires IPsec, what traffic to bypass, and what to discard. Entries map IP traffic subsets (by IP, port, protocol) to specific rules and SAs."
+  },
+  "92": {
+    "title": "Compare the processing model for Inbound and outbound packets in IPSec.",
+    "answer": "Outbound processing matches packets against the SPD to determine necessary security and applies the SA. Inbound processing maps incoming IPsec packets to an SA in the SAD to decrypt and verify them."
+  },
+  "93": {
+    "title": "Depict the scope of Encapsulating Security Payload encryption and authentication in IPSec.",
+    "answer": "ESP provides confidentiality by encrypting the payload. It also provides optional authentication and integrity, which covers the payload and ESP header, but not the outer IP header."
+  },
+  "94": {
+    "title": "Illustrate the protocol operation for Encapsulating Security Payload in IPSec.",
+    "answer": "ESP adds a header containing a Security Parameters Index (SPI) and sequence number. The payload is encrypted, and an optional authentication trailer is appended to ensure integrity."
+  },
+  "95": {
+    "title": "Write down the classification of Malicious Software.",
+    "answer": "Malware is broadly classified into programs that need a host program (viruses, logic bombs, backdoors) and independent programs (worms, bots, Trojans)."
+  },
+  "96": {
+    "title": "Describe virus structure and phases.",
+    "answer": "A virus structure includes a mechanism for infection and a payload. Its phases are dormant, propagation (copying itself), triggering (activation), and execution (performing its function)."
+  },
+  "97": {
+    "title": "Discuss the nature of Spam.",
+    "answer": "Spam is unsolicited bulk email. While often just a nuisance, it is a significant security threat because it is frequently used as a carrier for malware, phishing attacks, and scams."
+  },
+  "98": {
+    "title": "Illustrate effect of Trojan Horses.",
+    "answer": "Trojans masquerade as useful software but contain hidden malicious code. They can install backdoors, steal passwords, or destroy data when the user unknowingly executes them."
+  },
+  "99": {
+    "title": "Explain the three classes of intruders.",
+    "answer": "Intruders are classified as Masqueraders (outsiders exploiting legitimate access), Misfeasors (insiders misusing privileges), and Clandestine users (individuals seizing supervisory control)."
+  },
+  "100": {
+    "title": "Write down the examples of Intrusion.",
+    "answer": "Examples include performing remote root compromises, defacing web servers, guessing passwords, copying databases containing sensitive info, and installing unauthorized packet sniffers."
+  },
+  "101": {
+    "title": "Illustrate the techniques of Password Guessing.",
+    "answer": "Techniques include dictionary attacks (trying common words), brute-force attacks (trying all character combinations), and using publicly available personal information to guess passwords."
+  },
+  "102": {
+    "title": "Why do we need firewalls for computers?",
+    "answer": "Firewalls act as a choke point to control internal and external traffic, filtering out malicious connections, enforcing security policies, and hiding internal network structures from the internet."
+  },
+  "103": {
+    "title": "Describe the expectations and limitations of firewalls.",
+    "answer": "Firewalls are expected to block unauthorized traffic and log events. However, they cannot protect against internal threats, attacks bypassing the firewall (like dial-up), or completely prevent malware in legitimate traffic."
+  },
+  "104": {
+    "title": "Explain the firewall categories.",
+    "answer": "Categories include packet filtering firewalls (layer 3/4), stateful inspection firewalls (tracks active connections), application-level gateways (proxies), and next-generation firewalls (deep packet inspection)."
+  },
+  "105": {
+    "title": "Why Linux is superior to Microsoft Windows Operating System?",
+    "answer": "In security contexts, Linux is often favored for its open-source nature allowing peer review, stringent user privilege models, diverse distributions minimizing systemic vulnerabilities, and lack of registry bloat."
+  }
+}
